@@ -1,1214 +1,332 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishwa Swaroop Padarti - Senior Data Engineer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <title>Visu Vishwa - Data Engineer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #1abc9c;
-            --light-color: #f8f9fa;
-            --dark-color: #1a1a2e;
-            --text-color: #ffffff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* Use Inter as the default font */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--dark-color);
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
         }
-        
-        #animation-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+        /* Custom scrollbar for a more subtle look */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        
-        a {
-            text-decoration: none;
-            color: var(--accent-color);
-            transition: all 0.3s ease;
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; /* slate-100 */
         }
-        
-        a:hover {
-            color: var(--primary-color);
-        }
-        
-        ul {
-            list-style: none;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .glass-panel {
-            background: rgba(26, 26, 46, 0.8);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            padding: 2rem;
-        }
-        
-        /* Header */
-        header {
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            margin-left: 10px;
-        }
-        
-        .logo svg {
-            width: 30px;
-            height: 30px;
-        }
-        
-        .nav-links {
-            display: flex;
-        }
-        
-        .nav-links li {
-            margin-left: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: var(--light-color);
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 5px;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            margin-top: 60px;
-            position: relative;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .hero-text {
-            flex: 1;
-            padding-right: 2rem;
-        }
-        
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--light-color);
-            line-height: 1.2;
-        }
-        
-        .highlight {
-            color: var(--primary-color);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .hero-text h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-            font-weight: 400;
-        }
-        
-        .hero-text p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #cccccc;
-            max-width: 600px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: var(--accent-color);
-            transition: all 0.3s;
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            width: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .profile-container {
-            position: relative;
-            width: 350px;
-            height: 350px;
-        }
-        
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            object-fit: cover;
-            border: 4px solid var(--primary-color);
-            animation: morphing 10s infinite;
-            position: relative;
-            z-index: 2;
-        }
-        
-        @keyframes morphing {
-            0% {
-                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            }
-            25% {
-                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-            }
-            50% {
-                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-            }
-            75% {
-                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
-            }
-            100% {
-                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            }
-        }
-        
-        .blob {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            filter: blur(40px);
-            z-index: 1;
-        }
-        
-        .blob-1 {
-            background: var(--primary-color);
-            top: 30px;
-            left: 50px;
-            opacity: 0.6;
-        }
-        
-        .blob-2 {
-            background: var(--accent-color);
-            bottom: 50px;
-            right: 60px;
-            opacity: 0.6;
-        }
-        
-        /* About Section */
-        .section {
-            padding: 6rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--light-color);
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--primary-color);
-            bottom: -15px;
-            left: calc(50% - 40px);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 3rem;
-        }
-        
-        .about-text {
-            flex: 3;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #cccccc;
-        }
-        
-        .technologies {
-            flex: 2;
-        }
-        
-        .tech-category {
-            margin-bottom: 2rem;
-        }
-        
-        .tech-category h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 1rem;
-        }
-        
-        .tech-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .tech-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .tech-item img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1.5px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-            margin-bottom: 3rem;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--accent-color);
-            border: 4px solid var(--primary-color);
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-item:nth-child(odd)::after {
-            right: -12px;
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: -12px;
-        }
-        
-        .timeline-content {
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* slate-300 */
             border-radius: 10px;
-            position: relative;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .timeline-date {
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--light-color);
-        }
-        
-        .timeline-company {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: #cccccc;
-        }
-        
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .project-img {
-            height: 200px;
-            background: var(--dark-color);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .project-card:hover .project-img img {
-            transform: scale(1.1);
-        }
-        
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--light-color);
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-        
-        .tech-tag {
-            background: rgba(52, 152, 219, 0.2);
-            color: var(--primary-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            border: 1px solid rgba(52, 152, 219, 0.3);
-        }
-        
-        /* Contact Section */
-        .contact-container {
-            display: flex;
-            gap: 3rem;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--light-color);
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-icon {
-            margin-right: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-        }
-        
-        .contact-form {
-            flex: 2;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-            color: var(--light-color);
-            transition: all 0.3s;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        textarea {
-            height: 150px;
-            resize: none;
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(26, 26, 46, 0.95);
-            padding: 3rem 0;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .social-links a {
-            color: var(--light-color);
-            margin: 0 1rem;
-            font-size: 1.2rem;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .social-links a:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-5px);
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-content, .about-content, .contact-container {
-                flex-direction: column;
-            }
-            
-            .hero-text, .about-text {
-                padding-right: 0;
-                margin-bottom: 2rem;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item:nth-child(odd)::after,
-            .timeline-item:nth-child(even)::after {
-                left: 20px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-text h2 {
-                font-size: 1.5rem;
-            }
-            
-            .profile-container {
-                width: 280px;
-                height: 280px;
-            }
-            
-            .profile-img {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* slate-400 */
         }
     </style>
 </head>
-<body>
-    <canvas id="animation-canvas"></canvas>
-    
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3498db">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/>
-                    </svg>
-                    <span>Vishwa Padarti</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+<body class="text-slate-700">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-slate-50/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-800 tracking-tight">Visu Vishwa</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-slate-600 hover:text-sky-600 transition-colors duration-300">About</a>
+                <a href="#skills" class="text-slate-600 hover:text-sky-600 transition-colors duration-300">Skills</a>
+                <a href="#projects" class="text-slate-600 hover:text-sky-600 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="text-slate-600 hover:text-sky-600 transition-colors duration-300">Contact</a>
             </nav>
+            <a href="https://github.com/visuvishwa99" target="_blank" class="hidden md:flex items-center space-x-2 border border-slate-300 hover:border-slate-400 hover:bg-slate-100 transition-colors duration-300 px-4 py-2 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-slate-600"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .5 -.9 1.2 -.9 2.2v3.5"></path></svg>
+                <span class="font-medium">GitHub</span>
+            </a>
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+             <a href="#about" class="block py-2 text-slate-600 hover:text-sky-600">About</a>
+             <a href="#skills" class="block py-2 text-slate-600 hover:text-sky-600">Skills</a>
+             <a href="#projects" class="block py-2 text-slate-600 hover:text-sky-600">Projects</a>
+             <a href="#contact" class="block py-2 text-slate-600 hover:text-sky-600">Contact</a>
+             <a href="https://github.com/visuvishwa99" target="_blank" class="block py-2 text-slate-600 hover:text-sky-600">GitHub</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm <span class="highlight">Vishwa Swaroop Padarti</span></h1>
-                    <h2>Senior Data Engineer</h2>
-                    <p>I design and implement enterprise-scale data pipelines across Finance, Banking, Insurance, Telecom, and Retail sectors. Dual-certified cloud specialist with expertise in architecting sophisticated cloud-based data solutions.</p>
-                    <a href="#contact" class="btn">Get In Touch</a>
-                </div>
-                <div class="hero-image">
-                    <div class="profile-container">
-                        <div class="blob blob-1"></div>
-                        <div class="blob blob-2"></div>
-                        <img src="/api/placeholder/400/400" alt="Profile Picture" class="profile-img">
-                    </div>
+    <main class="container mx-auto px-6">
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 text-center">
+            <div class="max-w-4xl mx-auto">
+                <span class="inline-flex items-center rounded-full bg-sky-100 px-4 py-1 text-sm font-medium text-sky-700">
+                    Data Engineer & Cloud Enthusiast
+                </span>
+                <h1 class="mt-6 text-4xl md:text-6xl font-extrabold tracking-tighter text-slate-900">
+                    Building Robust Data Architectures
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-600">
+                    I specialize in designing, building, and optimizing scalable data pipelines and systems. Passionate about leveraging cloud technologies to transform raw data into actionable insights.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="#contact" class="bg-sky-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-sky-700 transition-all duration-300 shadow-lg shadow-sky-200">
+                        Get In Touch
+                    </a>
+                    <a href="#projects" class="bg-white text-slate-700 font-semibold px-6 py-3 rounded-lg hover:bg-slate-100 transition-all duration-300 border border-slate-300">
+                        View My Work
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">My background and expertise</p>
-            <div class="about-content glass-panel">
-                <div class="about-text">
-                    <p>I'm a Senior Data Engineer with over 9 years of experience in designing, implementing, and optimizing data infrastructures across various industries. My expertise lies in developing scalable ETL/ELT pipelines, data warehousing, and implementing cloud-based data solutions.</p>
-                    
-                    <p>As an advanced practitioner of Big Data technologies with demonstrated leadership in data modernization initiatives, I consistently deliver high-impact, innovative solutions that drive business value through comprehensive semantic modeling and data virtualization.</p>
-                    
-                    <p>I'm dual-certified as an Azure Data Engineer and AWS Certified Data Analytics Specialist, with proven expertise in architecting sophisticated cloud-based data solutions that transform raw data into actionable insights.</p>
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32">
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-2">
+                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">About Me</h2>
+                     <p class="mt-4 text-slate-500">
+                        <!-- Add a personal touch here! -->
+                        A brief introduction about yourself.
+                     </p>
                 </div>
-                <div class="technologies">
-                    <div class="tech-category">
-                        <h3>Data Processing</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">Apache Spark</div>
-                            <div class="tech-item">Hadoop</div>
-                            <div class="tech-item">Kafka</div>
-                            <div class="tech-item">Airflow</div>
-                        </div>
-                    </div>
-                    <div class="tech-category">
-                        <h3>Data Engineering</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">Databricks</div>
-                            <div class="tech-item">Snowflake</div>
-                            <div class="tech-item">dbt</div>
-                            <div class="tech-item">Delta Lake</div>
-                        </div>
-                    </div>
-                    <div class="tech-category">
-                        <h3>Cloud Platforms</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">AWS</div>
-                            <div class="tech-item">Azure</div>
-                            <div class="tech-item">Docker</div>
-                            <div class="tech-item">Kubernetes</div>
-                        </div>
+                <div class="md:col-span-3">
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                            <!-- IMPORTANT: Replace this with your own detailed bio. -->
+                            I am a results-driven Data Engineer with a strong foundation in software engineering and cloud computing. My journey into data began with a fascination for how structured information can drive business decisions and innovation.
+                            <br><br>
+                            I have hands-on experience architecting and implementing end-to-end data solutions on AWS and GCP, from ingestion and processing to storage and analysis. I thrive on tackling complex data challenges and am always eager to learn and apply new technologies to build more efficient and reliable systems.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <p class="section-subtitle">My professional journey</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content glass-panel">
-                        <div class="timeline-date">Jul 2024 - Present</div>
-                        <h3 class="timeline-title">Senior Data Engineer</h3>
-                        <div class="timeline-company">CAVA / Tech Alpha LLC</div>
-                        <p>Architected a modern data lake solution using Databricks' Medallion architecture with Delta Lake, consolidating data from diverse sources. Leading the migration from Redshift and other source systems to Databricks to support CAVA's strategic expansion.</p>
-                    </div>
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 md:py-32 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">My Tech Stack</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                A collection of the primary tools and technologies I work with.
+            </p>
+            <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Python</span>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content glass-panel">
-                        <div class="timeline-date">Dec 2022 - Jul 2024</div>
-                        <h3 class="timeline-title">Senior Data Engineer</h3>
-                        <div class="timeline-company">Calix / Tech Alpha LLC</div>
-                        <p>Successfully migrated historical data from Oracle to ADLS gen 2 using Azure Data Factory, improving data accessibility and processing speed. Built real-time data pipelines using Apache Kafka with Event Hub connectors. Implemented self-service analytics dashboards to improve analyst workflow efficiency.</p>
-                    </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">SQL</span>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content glass-panel">
-                        <div class="timeline-date">Dec 2021 - Dec 2022</div>
-                        <h3 class="timeline-title">Senior Data Engineer</h3>
-                        <div class="timeline-company">Freddie Mac / Tech Alpha LLC</div>
-                        <p>Optimized existing PySpark framework, supporting mortgage data processing for Freddie Mac's mortgage portfolio. Created the BYOL (Bring Your Own Logic) framework using PySpark on AWS EMR. Implemented Iceberg table format for time travel capabilities.</p>
-                    </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">AWS</span>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content glass-panel">
-                        <div class="timeline-date">Nov 2018 - Nov 2021</div>
-                        <h3 class="timeline-title">Big Data Engineer II</h3>
-                        <div class="timeline-company">American Express / Tech Alpha LLC</div>
-                        <p>Created efficient ETL processes (Magellan, Lucy) to transform customer data for fraud detection and credit card eligibility, ensuring industry compliance. Automated data loading for credit card data into Cornerstone tables from various ODL teams using Lucy.</p>
-                    </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">GCP</span>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content glass-panel">
-                        <div class="timeline-date">Oct 2017 - Oct 2018</div>
-                        <h3 class="timeline-title">Data Engineer</h3>
-                        <div class="timeline-company">Global Atlantic Financial Group / Tech Ops Inc</div>
-                        <p>Completed multiple end-to-end data warehouse implementations, ensuring adherence to Service Level Agreements (SLAs). Built automated data ingestion pipelines using Sqoop, NiFi, and Spark to extract financial data from various sources and securely store them in HDFS.</p>
-                    </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="Kafka" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Kafka</span>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content glass-panel">
-                        <div class="timeline-date">Aug 2017 - Oct 2017</div>
-                        <h3 class="timeline-title">Hadoop Developer</h3>
-                        <div class="timeline-company">PayPal / Tech Ops Inc</div>
-                        <p>Worked with the data engineering team to ingest customer behavior data from RDBMS systems (MySQL, Oracle) into HDFS using Sqoop and used Oozie job orchestration.</p>
-                    </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg" alt="Spark" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Spark</span>
+                </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Docker</span>
+                </div>
+                 <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Kubernetes</span>
+                </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://static-00.iconduck.com/assets.00/airflow-icon-512x512-5addl52s.png" alt="Airflow" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Airflow</span>
+                </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Terraform</span>
+                </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                     <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Snowflake</span>
+                </div>
+                <!-- Skill Item -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/databricks/databricks-original.svg" alt="Databricks" class="w-12 h-12"/>
+                    <span class="font-semibold text-slate-700">Databricks</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">Some of my key contributions</p>
-            
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/250" alt="Data Lake Architecture">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Medallion Architecture Data Lake</h3>
-                        <p>Designed and implemented a modern data lake solution using Databricks' Medallion architecture with Delta Lake, consolidating data from diverse retail systems and enabling comprehensive analytics across hundreds of store locations.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Databricks</span>
-                            <span class="tech-tag">Delta Lake</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Airflow</span>
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center">Featured Projects</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 text-center">
+                Here are some of the projects I'm proud to have worked on.
+            </p>
+            <div class="mt-12 grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+                    <div class="p-8 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900">End-to-End DE Project using AWS</h3>
+                        <p class="mt-3 text-slate-600">
+                            <!-- IMPORTANT: Replace this with your project description -->
+                            Developed a complete batch processing data pipeline on AWS. This project involved ingesting raw data from S3, transforming it using AWS Glue and Python, and loading the curated data into Amazon Redshift for analytics and BI reporting.
+                        </p>
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-slate-800">Technologies Used:</h4>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">AWS S3</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">AWS Glue</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">Redshift</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">SQL</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/250" alt="Real-time Pipeline">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Real-time Data Pipeline</h3>
-                        <p>Built real-time data pipelines using Apache Kafka with Event Hub connectors to process and analyze network telemetry data, enabling faster response to network issues and improved service quality monitoring.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Kafka</span>
-                            <span class="tech-tag">Azure</span>
-                            <span class="tech-tag">Event Hubs</span>
-                            <span class="tech-tag">Databricks</span>
-                        </div>
+                    <div class="bg-slate-50 p-6 border-t border-slate-200">
+                        <a href="https://github.com/visuvishwa99/End-to-End-DE-Project-using-AWS" target="_blank" class="font-semibold text-sky-600 hover:text-sky-700 transition-colors duration-300">
+                            View on GitHub &rarr;
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/250" alt="BYOL Framework">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">BYOL Framework</h3>
-                        <p>Created the Bring Your Own Logic framework using PySpark on AWS EMR, enabling flexible and maintainable processing of mortgage applications with custom business logic while maintaining high accuracy and performance.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PySpark</span>
-                            <span class="tech-tag">AWS EMR</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Iceberg</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <p class="section-subtitle">Let's connect</p>
-            
-            <div class="contact-container">
-                <div class="contact-info glass-panel">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+                    <div class="p-8 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900">Real-time DE project using Kafka</h3>
+                        <p class="mt-3 text-slate-600">
+                            <!-- IMPORTANT: Replace this with your project description -->
+                            Engineered a real-time streaming data pipeline to process and analyze user activity events. The system uses Kafka for message queuing, Spark Streaming for processing, and stores results in a NoSQL database for live dashboarding.
+                        </p>
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-slate-800">Technologies Used:</h4>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">Kafka</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">Spark Streaming</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">Cassandra</span>
+                            </div>
                         </div>
-                        <span>visuvishwa7227@gmail.com</span>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <span>Phoenix, AZ</span>
+                    <div class="bg-slate-50 p-6 border-t border-slate-200">
+                        <a href="https://github.com/visuvishwa99/Real-time-DE-project-using-kafka" target="_blank" class="font-semibold text-sky-600 hover:text-sky-700 transition-colors duration-300">
+                            View on GitHub &rarr;
+                        </a>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+                    <div class="p-8 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900">GCP Data Warehouse Modernization</h3>
+                        <p class="mt-3 text-slate-600">
+                            <!-- IMPORTANT: Replace this with your project description -->
+                            Led the modernization of a legacy data warehouse by migrating it to Google Cloud Platform. Built scalable ELT pipelines using Dataflow and orchestrated them with Cloud Composer (Airflow), with BigQuery serving as the central data warehouse.
+                        </p>
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-slate-800">Technologies Used:</h4>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">GCP</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">BigQuery</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">Dataflow</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">Airflow</span>
+                                <span class="bg-slate-100 text-slate-600 text-sm font-medium px-3 py-1 rounded-full">SQL</span>
+                            </div>
                         </div>
-                        <span>508-630-6815</span>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </div>
-                        <a href="https://www.linkedin.com/in/vishwa-p-109288191" target="_blank">LinkedIn Profile</a>
+                    <div class="bg-slate-50 p-6 border-t border-slate-200">
+                        <a href="https://github.com/visuvishwa99/GCP-DE-project" target="_blank" class="font-semibold text-sky-600 hover:text-sky-700 transition-colors duration-300">
+                            View on GitHub &rarr;
+                        </a>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </div>
+                <!-- Add more project cards here if needed -->
+
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Get In Touch</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                I'm currently open to new opportunities and collaborations. Feel free to reach out if you have a project in mind or just want to connect!
+            </p>
+            <div class="mt-8">
+                <!-- IMPORTANT: Replace with your email address -->
+                <a href="mailto:your.email@example.com" class="inline-block bg-sky-600 text-white font-semibold text-lg px-8 py-4 rounded-lg hover:bg-sky-700 transition-all duration-300 shadow-lg shadow-sky-200">
+                    Say Hello
+                </a>
+            </div>
+            <div class="mt-12 flex justify-center items-center space-x-6">
+                <!-- IMPORTANT: Replace with your LinkedIn profile URL -->
+                <a href="#" target="_blank" class="text-slate-500 hover:text-sky-600 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                 <a href="https://github.com/visuvishwa99" target="_blank" class="text-slate-500 hover:text-sky-600 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/vishwa-p-109288191" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                </a>
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                </a>
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-            </div>
-            <p>&copy; 2025 Vishwa Swaroop Padarti. All Rights Reserved.</p>
+    <footer class="border-t border-slate-200">
+        <div class="container mx-auto px-6 py-6 text-center text-slate-500">
+            <p>&copy; 2024 Visu Vishwa. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Data Visualization Animation
-        let nodes = [];
-        let connections = [];
-        let dataParticles = [];
+        // Simple script for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        function setup() {
-            const canvas = createCanvas(windowWidth, windowHeight);
-            canvas.parent('animation-canvas');
-            
-            // Create nodes
-            const nodeCount = 15;
-            for (let i = 0; i < nodeCount; i++) {
-                nodes.push({
-                    x: random(width),
-                    y: random(height),
-                    size: random(5, 12),
-                    speedX: random(-0.3, 0.3),
-                    speedY: random(-0.3, 0.3)
-                });
-            }
-            
-            // Create connections between nodes
-            for (let i = 0; i < nodeCount; i++) {
-                for (let j = i + 1; j < nodeCount; j++) {
-                    if (random() > 0.6) {
-                        connections.push({
-                            from: i,
-                            to: j,
-                            active: false,
-                            lastParticleTime: 0
-                        });
-                    }
-                }
-            }
-        }
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-        function draw() {
-            clear();
-            
-            // Update and draw connections
-            for (let i = 0; i < connections.length; i++) {
-                const conn = connections[i];
-                const nodeA = nodes[conn.from];
-                const nodeB = nodes[conn.to];
-                
-                // Calculate distance
-                const d = dist(nodeA.x, nodeA.y, nodeB.x, nodeB.y);
-                
-                // Only draw if nodes are within a certain distance
-                if (d < 300) {
-                    // Calculate opacity based on distance
-                    const alpha = map(d, 0, 300, 100, 20);
-                    
-                    // Draw line
-                    stroke(`rgba(52, 152, 219, ${alpha / 255})`);
-                    strokeWeight(1);
-                    line(nodeA.x, nodeA.y, nodeB.x, nodeB.y);
-                    
-                    // Randomly activate connections for particle animation
-                    if (random() < 0.001) {
-                        conn.active = true;
-                    }
-                    
-                    // Add data particles along active connections
-                    if (conn.active && millis() - conn.lastParticleTime > 300) {
-                        dataParticles.push({
-                            x: nodeA.x,
-                            y: nodeA.y,
-                            targetX: nodeB.x,
-                            targetY: nodeB.y,
-                            progress: 0,
-                            speed: random(0.01, 0.03)
-                        });
-                        conn.lastParticleTime = millis();
-                        
-                        // Deactivate after a while
-                        if (random() < 0.1) {
-                            conn.active = false;
-                        }
-                    }
-                }
-            }
-            
-            // Update and draw nodes
-            for (let i = 0; i < nodes.length; i++) {
-                const node = nodes[i];
-                
-                // Move nodes
-                node.x += node.speedX;
-                node.y += node.speedY;
-                
-                // Bounce off edges
-                if (node.x < 0 || node.x > width) node.speedX *= -1;
-                if (node.y < 0 || node.y > height) node.speedY *= -1;
-                
-                // Draw node
-                noStroke();
-                fill(52, 152, 219, 180);
-                circle(node.x, node.y, node.size);
-                
-                // Draw glow
-                drawingContext.shadowBlur = 15;
-                drawingContext.shadowColor = 'rgba(52, 152, 219, 0.5)';
-                circle(node.x, node.y, node.size);
-                drawingContext.shadowBlur = 0;
-            }
-            
-            // Update and draw data particles
-            for (let i = dataParticles.length - 1; i >= 0; i--) {
-                const p = dataParticles[i];
-                
-                // Move along the path
-                p.progress += p.speed;
-                
-                // Calculate current position
-                p.x = lerp(p.x, p.targetX, p.speed);
-                p.y = lerp(p.y, p.targetY, p.speed);
-                
-                // Draw particle
-                fill(26, 188, 156, 200);
-                noStroke();
-                circle(p.x, p.y, 3);
-                
-                // Remove if reached target
-                if (dist(p.x, p.y, p.targetX, p.targetY) < 5) {
-                    dataParticles.splice(i, 1);
-                }
-            }
-        }
-
-        function windowResized() {
-            resizeCanvas(windowWidth, windowHeight);
-        }
-        
-        // Animation for elements as they enter the viewport
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize GSAP animations
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // Animate section titles
-            gsap.utils.toArray('.section-title').forEach(title => {
-                gsap.from(title, {
-                    opacity: 0,
-                    y: 50,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: title,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                });
-            });
-            
-            // Animate timeline items
-            gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-                gsap.from(item, {
-                    opacity: 0,
-                    x: i % 2 === 0 ? -100 : 100,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                });
-            });
-            
-            // Animate project cards
-            gsap.utils.toArray('.project-card').forEach((card, i) => {
-                gsap.from(card, {
-                    opacity: 0,
-                    y: 100,
-                    duration: 0.8,
-                    delay: i * 0.2,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
-                    }
-                });
-            });
-            
-            // Animate tech items
-            gsap.utils.toArray('.tech-item').forEach((item, i) => {
-                gsap.from(item, {
-                    opacity: 0,
-                    scale: 0.8,
-                    duration: 0.5,
-                    delay: i * 0.05,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 90%',
-                        toggleActions: 'play none none none'
-                    }
-                });
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
         });
+        
+        // Close menu when clicking outside, optional
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnButton = mobileMenuButton.contains(event.target);
+            if (!isClickInsideMenu && !isClickOnButton) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
     </script>
+
 </body>
 </html>
