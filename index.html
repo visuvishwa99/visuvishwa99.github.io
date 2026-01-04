@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishwa.P (Sr.Cloud data Engineer)</title>
-    
+    <title>Vishwa.P | Senior Cloud Data Engineer</title>
+    <meta name="description"
+        content="Portfolio of Vishwa.P, a Senior Cloud Data Engineer specializing in architecting scalable data platforms, AI-driven workflows, and cloud-native solutions.">
+    <meta name="keywords"
+        content="Data Engineer, Cloud Engineering, AWS, Azure, Databricks, AI Automation, Spark, Kafka, Python, ETL">
+    <meta name="author" content="Vishwa.P">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <style>
         /* Use Inter as the default font */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* slate-900 */
-            color: #94a3b8; /* slate-400 */
+            background-color: #0f172a;
+            /* slate-900 */
+            color: #94a3b8;
+            /* slate-400 */
         }
-        
+
         /* Background animation canvas */
         #bg-animation {
             position: fixed;
@@ -35,15 +43,21 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: #1e293b; /* slate-800 */
+            background: #1e293b;
+            /* slate-800 */
         }
+
         ::-webkit-scrollbar-thumb {
-            background: #475569; /* slate-600 */
+            background: #475569;
+            /* slate-600 */
             border-radius: 10px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
-            background: #64748b; /* slate-500 */
+            background: #64748b;
+            /* slate-500 */
         }
 
         /* Fade-in animation for sections */
@@ -52,61 +66,85 @@
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
         .fade-in-section.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
 </head>
+
 <body>
 
     <canvas id="bg-animation"></canvas>
 
-    <header id="header" class="bg-slate-900/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-slate-800">
+    <header id="header"
+        class="bg-slate-900/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-slate-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-slate-100 tracking-tight">Modern Data Stacks</a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="text-slate-400 hover:text-sky-400 transition-colors duration-300">About</a>
                 <a href="#skills" class="text-slate-400 hover:text-sky-400 transition-colors duration-300">Skills</a>
-                <a href="#certifications" class="text-slate-400 hover:text-sky-400 transition-colors duration-300">Certifications</a>
-                <a href="#recommendations" class="text-slate-400 hover:text-sky-400 transition-colors duration-300">Recommendations</a>
+                <a href="#certifications"
+                    class="text-slate-400 hover:text-sky-400 transition-colors duration-300">Certifications</a>
+                <a href="#recommendations"
+                    class="text-slate-400 hover:text-sky-400 transition-colors duration-300">Recommendations</a>
                 <a href="#contact" class="text-slate-400 hover:text-sky-400 transition-colors duration-300">Contact</a>
             </nav>
-            <a href="https://github.com/visuvishwa99" target="_blank" class="hidden md:flex items-center space-x-2 border border-slate-700 hover:border-slate-600 hover:bg-slate-800 transition-colors duration-300 px-4 py-2 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-slate-400"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .5 -.9 1.2 -.9 2.2v3.5"></path></svg>
+            <a href="https://github.com/visuvishwa99" target="_blank"
+                class="hidden md:flex items-center space-x-2 border border-slate-700 hover:border-slate-600 hover:bg-slate-800 transition-colors duration-300 px-4 py-2 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5 text-slate-400">
+                    <path
+                        d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .5 -.9 1.2 -.9 2.2v3.5">
+                    </path>
+                </svg>
                 <span class="font-medium text-slate-300">GitHub</span>
             </a>
             <button id="mobile-menu-button" class="md:hidden text-slate-400">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-6 h-6">
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
             </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-slate-900/95">
-             <a href="#about" class="block py-2 text-slate-400 hover:text-sky-400">About</a>
-             <a href="#skills" class="block py-2 text-slate-400 hover:text-sky-400">Skills</a>
-             <a href="#certifications" class="block py-2 text-slate-400 hover:text-sky-400">Certifications</a>
-             <a href="#recommendations" class="block py-2 text-slate-400 hover:text-sky-400">Recommendations</a>
-             <a href="#contact" class="block py-2 text-slate-400 hover:text-sky-400">Contact</a>
-             <a href="https://github.com/visuvishwa99" target="_blank" class="block py-2 text-slate-400 hover:text-sky-400">GitHub</a>
+            <a href="#about" class="block py-2 text-slate-400 hover:text-sky-400">About</a>
+            <a href="#skills" class="block py-2 text-slate-400 hover:text-sky-400">Skills</a>
+            <a href="#certifications" class="block py-2 text-slate-400 hover:text-sky-400">Certifications</a>
+            <a href="#recommendations" class="block py-2 text-slate-400 hover:text-sky-400">Recommendations</a>
+            <a href="#contact" class="block py-2 text-slate-400 hover:text-sky-400">Contact</a>
+            <a href="https://github.com/visuvishwa99" target="_blank"
+                class="block py-2 text-slate-400 hover:text-sky-400">GitHub</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 relative z-10">
         <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 text-center">
             <div class="max-w-4xl mx-auto">
-                <span class="inline-flex items-center rounded-full bg-sky-500/10 px-4 py-1 text-sm font-medium text-sky-400">
+                <span
+                    class="inline-flex items-center rounded-full bg-sky-500/10 px-4 py-1 text-sm font-medium text-sky-400">
                     Sr. Data Engineer (Cloud & AI Automation)
                 </span>
                 <h1 class="mt-6 text-4xl md:text-6xl font-extrabold tracking-tighter text-slate-100">
                     Automating Data at Scale with Cloud & AI
                 </h1>
                 <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-400">
-                    I specialize in architecting, automating, and scaling cloud-native data platforms. With a strong focus on AI-driven workflows, I design intelligent pipelines that seamlessly transform raw data into strategic insights.
+                    I specialize in architecting, automating, and scaling cloud-native data platforms. With a strong
+                    focus on AI-driven workflows, I design intelligent pipelines that seamlessly transform raw data into
+                    strategic insights.
                 </p>
                 <div class="mt-8 flex justify-center gap-4">
-                    <a href="#contact" class="bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-sky-600 transition-all duration-300 shadow-lg shadow-sky-500/20">
+                    <a href="#contact"
+                        class="bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-sky-600 transition-all duration-300 shadow-lg shadow-sky-500/20">
                         Get In Touch
                     </a>
-                    <a href="#recommendations" class="bg-slate-800 text-slate-300 font-semibold px-6 py-3 rounded-lg hover:bg-slate-700 transition-all duration-300 border border-slate-700">
+                    <a href="#recommendations"
+                        class="bg-slate-800 text-slate-300 font-semibold px-6 py-3 rounded-lg hover:bg-slate-700 transition-all duration-300 border border-slate-700">
                         View Recommendations
                     </a>
                 </div>
@@ -117,19 +155,31 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
                 <div class="md:col-span-1 flex justify-center">
                     <div class="relative w-64 h-64 md:w-72 md:h-72">
-                        <div class="absolute inset-0 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full blur-xl opacity-50"></div>
-                        <img src="Profile.png" 
-                             alt="A photo of Vishwa.p" 
-                             class="relative rounded-full w-full h-full object-cover border-4 border-slate-700 shadow-lg">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full blur-xl opacity-50">
+                        </div>
+                        <img src="profile.png" alt="A photo of Vishwa.p"
+                            class="relative rounded-full w-full h-full object-cover object-[center_10%] border-4 border-slate-700 shadow-lg">
                     </div>
                 </div>
                 <div class="md:col-span-2">
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-100 mb-6">About Me</h2>
                     <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-800 shadow-lg">
                         <p class="text-lg text-slate-400 leading-relaxed">
-                            As a seasoned Senior Data Engineer, I’m Vishwa.P, bringing over a decade of experience in architecting scalable, cloud-native data platforms that power intelligent automation, real-time analytics, and strategic decision-making across finance, banking, retail, telecom, and food-tech industries. I specialize in building robust ETL pipelines and Medallion architecture frameworks using tools like AWS (EMR, Glue, Redshift), Azure (ADF), and Databricks—seamlessly integrating diverse data sources into secure, unified lakehouse solutions.
+                            Hi, I'm Vishwa.P—a Senior Data Engineer who's spent the last 10+ years turning messy data
+                            into powerful business insights. I love building data platforms that actually work in the
+                            real world, helping companies in finance, banking, retail, telecom, and food-tech make
+                            smarter decisions faster.
                             <br><br>
-                            My strategic edge lies in integrating AI-powered automation and real-time orchestration into the data lifecycle leveraging technologies like Spark, Kafka, and dbt to build intelligent, self-optimizing data pipelines. I consistently deliver high-impact solutions that blend domain knowledge with cutting-edge cloud and AI engineering—ensuring scalability, reliability, and business alignment at every step.
+                            What gets me excited? Taking fragmented data from all over the place and creating clean,
+                            reliable pipelines that teams can actually depend on. I work with tools like AWS, Azure, and
+                            Databricks to build what I call "data ecosystems"—secure, scalable solutions where your data
+                            can breathe and grow with your business.
+                            <br><br>
+                            Here's where it gets interesting: I don't just move data around—I make it intelligent. By
+                            integrating AI automation and real-time processing with technologies like Spark, Kafka, and
+                            dbt, I create pipelines that learn and adapt. Think of them as data systems that get smarter
+                            over time, reducing manual work while delivering exactly what your business needs.
                         </p>
                     </div>
                 </div>
@@ -143,68 +193,87 @@
             </p>
             <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
                 <!-- Skill Item: Databricks -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <svg class="w-12 h-12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#F8462D" d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z"/></svg>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-12 h-12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#F8462D"
+                            d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z" />
+                    </svg>
                     <span class="font-semibold text-slate-300">Databricks</span>
                 </div>
                 <!-- Skill Item: Snowflake -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                     <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake" class="w-12 h-12"/>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake"
+                        class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">Snowflake</span>
                 </div>
                 <!-- Skill Item: dbt -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <svg class="w-12 h-12" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#FF694B" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm-.5 10.5V4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0Z"/></svg>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.simpleicons.org/dbt/FF694B" alt="dbt" class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">dbt</span>
                 </div>
                 <!-- Skill Item: AWS -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <svg class="w-12 h-12" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#FF9900" d="M14.9 11.5c-1.26 1.25-2.81 1.93-4.6 1.93a6.75 6.75 0 0 1-5-2.44.67.67 0 0 1 1.05-.81a5.24 5.24 0 0 0 4-2.07.67.67 0 0 1 1.21.55a7 7 0 0 1-2.27 3.4A5.22 5.22 0 0 0 13.7 11a.67.67 0 0 1 .94.94c-.1.1-.21.2-.34.33Z"/><path fill="#232F3E" d="M8.31 9.18a.67.67 0 0 1-.8-.17A5.05 5.05 0 0 0 4.57 7.1a.67.67 0 1 1 .33-1.3A6.38 6.38 0 0 1 8.58 8.1a.67.67 0 0 1-.27 1.08Z"/><path fill="#232F3E" d="M14.22 4.96a.67.67 0 0 1-.89.25a5.33 5.33 0 0 0-7.89-.66.67.67 0 0 1-.67-1.15A6.66 6.66 0 0 1 15 4.05a.67.67 0 0 1-.78.91Z"/><path fill="#FF9900" d="M12.87 7.07a.67.67 0 0 1-.67-.66a3.6 3.6 0 0 0-3-1.55a3.53 3.53 0 0 0-2.76 1.37.67.67 0 0 1-1.08-.77A4.87 4.87 0 0 1 9.21 4a4.93 4.93 0 0 1 3.92 2.15.67.67 0 0 1-.26.92Z"/></svg>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS"
+                        class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">AWS</span>
                 </div>
                 <!-- Skill Item: Azure -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="w-12 h-12"/>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"
+                        class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">Azure</span>
                 </div>
                 <!-- Skill Item: Python -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-12 h-12"/>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python" class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">Python</span>
                 </div>
                 <!-- Skill Item: SQL -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL" class="w-12 h-12"/>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="SQL" class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">SQL</span>
                 </div>
                 <!-- Skill Item: Kafka -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="Kafka" class="w-12 h-12"/>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"
+                        alt="Kafka" class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">Kafka</span>
                 </div>
                 <!-- Skill Item: Spark -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg" alt="Spark" class="w-12 h-12"/>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg"
+                        alt="Spark" class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">Spark</span>
                 </div>
-                <!-- Skill Item: Flink -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <svg class="w-12 h-12" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Apache Flink</title><path d="M20.944 9.375h-8.313V6.25H24v14.063l-4.688-4.688v-6.25zM3.056 9.375h8.313v3.125H0V3.75l4.688 4.688v.937z" fill="#E6526F"/></svg>
-                    <span class="font-semibold text-slate-300">Flink</span>
-                </div>
-                 <!-- Skill Item: Kubernetes -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="w-12 h-12"/>
+
+                <!-- Skill Item: Kubernetes -->
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                        alt="Kubernetes" class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">Kubernetes</span>
                 </div>
                 <!-- Skill Item: Airflow -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <svg class="w-12 h-12" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Apache Airflow</title><path d="M21.895 9.449c.538 0 .906.5.763.994l-1.39 4.84c-.144.5-.764.5-.907 0l-1.39-4.84c-.143-.494.225-.994.763-.994h2.161zm-4.716-1.99c.538 0 .906.5.763.994l-1.39 4.84c-.144.5-.764.5-.907 0l-1.39-4.84c-.143-.494.225-.994.763-.994h2.161zm-4.07-3.323c.538 0 .906.5.763.994l-1.39 4.84c-.144.5-.764.5-.907 0L10.59 5.13c-.143-.494.225-.994.763-.994h2.161zm-4.715-1.99c.538 0 .906.5.763.994l-1.39 4.84c-.144.5-.764.5-.907 0L5.875 3.136c-.143-.494.225-.994.763-.994h2.161zM3.443 9.449c.538 0 .906.5.763.994l-1.39 4.84c-.144.5-.764.5-.907 0L.519 10.443c-.143-.494.225-.994.763-.994h2.161zm16.291 6.83L18.344 11.44c-.144-.5-.764-.5-.907 0l-1.39 4.84c-.143.494.225.994.763.994h2.161c.538 0 .906-.5.763-.994zm-4.07-3.322L14.274 8.12c-.144-.5-.764-.5-.907 0l-1.39 4.84c-.143.494.225.994.763.994h2.161c.538 0 .906-.5.763-.994zm-4.715-1.99L9.559 6.13c-.144-.5-.764-.5-.907 0L7.262 10.97c-.143.494.225.994.763.994h2.161c.538 0 .906-.5.763-.994zm-4.07-3.322L5.489 4.805c-.144-.5-.764-.5-.907 0L3.192 9.645c-.143.494.225.994.763.994h2.161c.538 0 .906-.5.763-.994zm10.926 11.814l-1.39-4.84c-.144-.5-.764-.5-.907 0l-1.39 4.84c-.143.494.225.994.763.994h2.161c.538 0 .906-.5.763-.994zm-4.715-1.99l-1.39-4.84c-.144-.5-.764-.5-.907 0l-1.39 4.84c-.143.494.225.994.763.994h2.161c.538 0 .906-.5.763-.994zm-4.07-3.323l-1.39-4.84c-.144-.5-.764-.5-.907 0l-1.39 4.84c-.143.494.225.994.763.994h2.161c.538 0 .906-.5.763-.994z" fill="#00D1C1"/></svg>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.simpleicons.org/apacheairflow/017CEE" alt="Airflow" class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">Airflow</span>
                 </div>
                 <!-- Skill Item: Docker -->
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-12 h-12"/>
+                <div
+                    class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                        alt="Docker" class="w-12 h-12" />
                     <span class="font-semibold text-slate-300">Docker</span>
                 </div>
             </div>
@@ -216,20 +285,43 @@
                 My professional certifications demonstrating expertise in cloud and data technologies.
             </p>
             <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
-                    <svg class="w-16 h-16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#FF9900" d="M14.9 11.5c-1.26 1.25-2.81 1.93-4.6 1.93a6.75 6.75 0 0 1-5-2.44.67.67 0 0 1 1.05-.81a5.24 5.24 0 0 0 4-2.07.67.67 0 0 1 1.21.55a7 7 0 0 1-2.27 3.4A5.22 5.22 0 0 0 13.7 11a.67.67 0 0 1 .94.94c-.1.1-.21.2-.34.33Z"/><path fill="#232F3E" d="M8.31 9.18a.67.67 0 0 1-.8-.17A5.05 5.05 0 0 0 4.57 7.1a.67.67 0 1 1 .33-1.3A6.38 6.38 0 0 1 8.58 8.1a.67.67 0 0 1-.27 1.08Z"/><path fill="#232F3E" d="M14.22 4.96a.67.67 0 0 1-.89.25a5.33 5.33 0 0 0-7.89-.66.67.67 0 0 1-.67-1.15A6.66 6.66 0 0 1 15 4.05a.67.67 0 0 1-.78.91Z"/><path fill="#FF9900" d="M12.87 7.07a.67.67 0 0 1-.67-.66a3.6 3.6 0 0 0-3-1.55a3.53 3.53 0 0 0-2.76 1.37.67.67 0 0 1-1.08-.77A4.87 4.87 0 0 1 9.21 4a4.93 4.93 0 0 1 3.92 2.15.67.67 0 0 1-.26.92Z"/></svg>
-                    <h3 class="text-lg font-semibold text-slate-200 mt-4">AWS Certified Solutions Architect – Associate</h3>
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
+                    <svg class="w-16 h-16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#FF9900"
+                            d="M14.9 11.5c-1.26 1.25-2.81 1.93-4.6 1.93a6.75 6.75 0 0 1-5-2.44.67.67 0 0 1 1.05-.81a5.24 5.24 0 0 0 4-2.07.67.67 0 0 1 1.21.55a7 7 0 0 1-2.27 3.4A5.22 5.22 0 0 0 13.7 11a.67.67 0 0 1 .94.94c-.1.1-.21.2-.34.33Z" />
+                        <path fill="#232F3E"
+                            d="M8.31 9.18a.67.67 0 0 1-.8-.17A5.05 5.05 0 0 0 4.57 7.1a.67.67 0 1 1 .33-1.3A6.38 6.38 0 0 1 8.58 8.1a.67.67 0 0 1-.27 1.08Z" />
+                        <path fill="#232F3E"
+                            d="M14.22 4.96a.67.67 0 0 1-.89.25a5.33 5.33 0 0 0-7.89-.66.67.67 0 0 1-.67-1.15A6.66 6.66 0 0 1 15 4.05a.67.67 0 0 1-.78.91Z" />
+                        <path fill="#FF9900"
+                            d="M12.87 7.07a.67.67 0 0 1-.67-.66a3.6 3.6 0 0 0-3-1.55a3.53 3.53 0 0 0-2.76 1.37.67.67 0 0 1-1.08-.77A4.87 4.87 0 0 1 9.21 4a4.93 4.93 0 0 1 3.92 2.15.67.67 0 0 1-.26.92Z" />
+                    </svg>
+                    <h3 class="text-lg font-semibold text-slate-200 mt-4">AWS Certified Solutions Architect – Associate
+                    </h3>
                 </div>
-                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
-                    <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#F8462D" d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z"/></svg>
-                    <h3 class="text-lg font-semibold text-slate-200 mt-4">Databricks Certified Data Engineer Associate</h3>
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
+                    <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#F8462D"
+                            d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z" />
+                    </svg>
+                    <h3 class="text-lg font-semibold text-slate-200 mt-4">Databricks Certified Data Engineer Associate
+                    </h3>
                 </div>
-                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="w-16 h-16"/>
-                    <h3 class="text-lg font-semibold text-slate-200 mt-4">Microsoft Certified: Azure Data Fundamentals</h3>
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"
+                        class="w-16 h-16" />
+                    <h3 class="text-lg font-semibold text-slate-200 mt-4">Microsoft Certified: Azure Data Fundamentals
+                    </h3>
                 </div>
-                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
-                    <svg class="w-16 h-16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#FF694B" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm-.5 10.5V4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0Z"/></svg>
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
+                    <svg class="w-16 h-16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#FF694B"
+                            d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm-.5 10.5V4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0Z" />
+                    </svg>
                     <h3 class="text-lg font-semibold text-slate-200 mt-4">dbt Analytics Engineering Certified</h3>
                 </div>
             </div>
@@ -237,26 +329,37 @@
 
         <section id="recommendations" class="py-20 md:py-32 fade-in-section">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-100 text-center">Recommendations</h2>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-100 text-center">Recommendations
+                </h2>
                 <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400 text-center">
                     What my colleagues and managers say about my work.
                 </p>
                 <div class="mt-8 text-center">
-                    <a href="https://www.linkedin.com/in/vishwa-p-109288191/details/recommendations/" target="_blank" class="inline-block bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-sky-600 transition-all duration-300 shadow-lg shadow-sky-500/20">
+                    <a href="https://www.linkedin.com/in/vishwa-p-109288191/details/recommendations/" target="_blank"
+                        class="inline-block bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-sky-600 transition-all duration-300 shadow-lg shadow-sky-500/20">
                         View All on LinkedIn
                     </a>
                 </div>
                 <div class="mt-12 grid md:grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="bg-slate-800/50 rounded-xl border border-slate-800 shadow-lg flex flex-col p-8">
                         <div class="flex-grow">
-                            <svg class="w-10 h-10 text-sky-400 mb-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.422,7.524V4.954A2.954,2.954,0,0,0,7.468,2H4.954A2.954,2.954,0,0,0,2,4.954V9.83a2.954,2.954,0,0,0,2.954,2.954h.46v-3.3A1.97,1.97,0,0,1,7.385,7.524Zm7.908,0V4.954A2.954,2.954,0,0,0,15.376,2H12.862a2.954,2.954,0,0,0-2.954,2.954V9.83a2.954,2.954,0,0,0,2.954,2.954h.46v-3.3A1.97,1.97,0,0,1,15.293,7.524Z" transform="translate(0 -2)"/></svg>
+                            <svg class="w-10 h-10 text-sky-400 mb-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M10.422,7.524V4.954A2.954,2.954,0,0,0,7.468,2H4.954A2.954,2.954,0,0,0,2,4.954V9.83a2.954,2.954,0,0,0,2.954,2.954h.46v-3.3A1.97,1.97,0,0,1,7.385,7.524Zm7.908,0V4.954A2.954,2.954,0,0,0,15.376,2H12.862a2.954,2.954,0,0,0-2.954,2.954V9.83a2.954,2.954,0,0,0,2.954,2.954h.46v-3.3A1.97,1.97,0,0,1,15.293,7.524Z"
+                                    transform="translate(0 -2)" />
+                            </svg>
                             <p class="text-slate-400 italic">
-                                "I would highly recommend vishwa for any data engineering job. He is highly skilled and motivated . He was one of my main engineers helping......."
+                                "I would highly recommend vishwa for any data engineering job. He is highly skilled and
+                                motivated . He was one of my main engineers helping......."
                             </p>
                         </div>
                         <div class="mt-6 pt-6 border-t border-slate-700 flex items-center">
                             <div class="flex-shrink-0">
-                                <svg class="w-12 h-12 text-slate-600" fill="currentColor" viewBox="0 0 24 24"><path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                <svg class="w-12 h-12 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z">
+                                    </path>
+                                </svg>
                             </div>
                             <div class="ml-4">
                                 <h4 class="text-lg font-bold text-slate-200">Sudhakar S</h4>
@@ -267,14 +370,23 @@
 
                     <div class="bg-slate-800/50 rounded-xl border border-slate-800 shadow-lg flex flex-col p-8">
                         <div class="flex-grow">
-                             <svg class="w-10 h-10 text-sky-400 mb-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.422,7.524V4.954A2.954,2.954,0,0,0,7.468,2H4.954A2.954,2.954,0,0,0,2,4.954V9.83a2.954,2.954,0,0,0,2.954,2.954h.46v-3.3A1.97,1.97,0,0,1,7.385,7.524Zm7.908,0V4.954A2.954,2.954,0,0,0,15.376,2H12.862a2.954,2.954,0,0,0-2.954,2.954V9.83a2.954,2.954,0,0,0,2.954,2.954h.46v-3.3A1.97,1.97,0,0,1,15.293,7.524Z" transform="translate(0 -2)"/></svg>
+                            <svg class="w-10 h-10 text-sky-400 mb-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M10.422,7.524V4.954A2.954,2.954,0,0,0,7.468,2H4.954A2.954,2.954,0,0,0,2,4.954V9.83a2.954,2.954,0,0,0,2.954,2.954h.46v-3.3A1.97,1.97,0,0,1,7.385,7.524Zm7.908,0V4.954A2.954,2.954,0,0,0,15.376,2H12.862a2.954,2.954,0,0,0-2.954,2.954V9.83a2.954,2.954,0,0,0,2.954,2.954h.46v-3.3A1.97,1.97,0,0,1,15.293,7.524Z"
+                                    transform="translate(0 -2)" />
+                            </svg>
                             <p class="text-slate-400 italic">
-                                "Vishwa is a highly intelligent and humble developer, I had the pleasure of working with Vishwa and was really impressed with the way he approaches multiple challenges....."
+                                "Vishwa is a highly intelligent and humble developer, I had the pleasure of working with
+                                Vishwa and was really impressed with the way he approaches multiple challenges....."
                             </p>
                         </div>
                         <div class="mt-6 pt-6 border-t border-slate-700 flex items-center">
                             <div class="flex-shrink-0">
-                                <svg class="w-12 h-12 text-slate-600" fill="currentColor" viewBox="0 0 24 24"><path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                <svg class="w-12 h-12 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z">
+                                    </path>
+                                </svg>
                             </div>
                             <div class="ml-4">
                                 <h4 class="text-lg font-bold text-slate-200">Ali Mandviwala</h4>
@@ -289,19 +401,31 @@
         <section id="contact" class="py-20 md:py-32 text-center fade-in-section">
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-100">Get In Touch</h2>
             <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">
-                I'm currently open to new opportunities and collaborations. Feel free to reach out if you have a project in mind or just want to connect!
+                I'm currently open to new opportunities and collaborations. Feel free to reach out if you have a project
+                in mind or just want to connect!
             </p>
             <div class="mt-8">
-                <a href="mailto:your.email@example.com" class="inline-block bg-sky-500 text-white font-semibold text-lg px-8 py-4 rounded-lg hover:bg-sky-600 transition-all duration-300 shadow-lg shadow-sky-500/20">
+                <a href="mailto:your.email@example.com"
+                    class="inline-block bg-sky-500 text-white font-semibold text-lg px-8 py-4 rounded-lg hover:bg-sky-600 transition-all duration-300 shadow-lg shadow-sky-500/20">
                     Say Hello
                 </a>
             </div>
             <div class="mt-12 flex justify-center items-center space-x-6">
-                <a href="https://www.linkedin.com/in/vishwa-p-109288191/" target="_blank" class="text-slate-500 hover:text-sky-400 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="https://www.linkedin.com/in/vishwa-p-109288191/" target="_blank"
+                    class="text-slate-500 hover:text-sky-400 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor" class="w-8 h-8">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
                 </a>
-                 <a href="https://github.com/visuvishwa99" target="_blank" class="text-slate-500 hover:text-sky-400 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <a href="https://github.com/visuvishwa99" target="_blank"
+                    class="text-slate-500 hover:text-sky-400 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor" class="w-8 h-8">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
                 </a>
             </div>
         </section>
@@ -309,7 +433,7 @@
 
     <footer class="border-t border-slate-800">
         <div class="container mx-auto px-6 py-6 text-center text-slate-500">
-            <p>&copy; 2025 Visu Vishwa. All Rights Reserved.</p>
+            <p>&copy; 2026 Vishwa.P. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -358,7 +482,7 @@
             starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             starGeo.setAttribute('velocity', new THREE.BufferAttribute(velocities, 1));
             starGeo.setAttribute('acceleration', new THREE.BufferAttribute(accelerations, 1));
-            
+
             let sprite = new THREE.TextureLoader().load('https://threejs.org/examples/textures/sprites/disc.png');
             let starMaterial = new THREE.PointsMaterial({
                 color: 0xaaaaaa,
@@ -397,7 +521,7 @@
             renderer.render(scene, camera);
             requestAnimationFrame(animate);
         }
-        
+
         init();
 
         // --- Scroll-based Fade-in Animation ---
@@ -418,4 +542,5 @@
     </script>
 
 </body>
+
 </html>
