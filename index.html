@@ -211,7 +211,8 @@
                 <!-- Skill Item: dbt -->
                 <div
                     class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-3 shadow-lg hover:shadow-sky-500/20 hover:-translate-y-1 transition-all duration-300">
-                    <img src=".github/logos/dbt_logo.png" alt="dbt" class="w-12 h-12 object-contain" />
+                    <img src="./.github/logos/dbt_logo.png" alt="dbt"
+                        class="h-10 w-auto object-contain brightness-125" />
                     <span class="font-semibold text-slate-300">dbt</span>
                 </div>
                 <!-- Skill Item: AWS -->
@@ -284,50 +285,65 @@
             <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">
                 My professional certifications demonstrating expertise in cloud and data technologies.
             </p>
-            <!-- Databricks GenAI -->
-            <div
-                class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
-                <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#F8462D"
-                        d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z" />
-                </svg>
-                <h3 class="text-lg font-semibold text-slate-200">Academy Accreditation - Generative AI Fundamentals</h3>
-                <p class="text-sm text-slate-400">Databricks</p>
-            </div>
-            <!-- Azure Data Engineer -->
-            <div
-                class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"
-                    class="w-16 h-16" />
-                <h3 class="text-lg font-semibold text-slate-200">Microsoft Certified: Azure Data Engineer Associate</h3>
-                <p class="text-sm text-slate-400">Microsoft</p>
-            </div>
-            <!-- Databricks Lakehouse -->
-            <div
-                class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
-                <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#F8462D"
-                        d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z" />
-                </svg>
-                <h3 class="text-lg font-semibold text-slate-200">Academy Accreditation - Databricks Lakehouse
-                    Fundamentals</h3>
-                <p class="text-sm text-slate-400">Databricks</p>
-            </div>
-            <!-- dbt Fundamentals -->
-            <div
-                class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center">
-                <img src=".github/logos/dbt_logo.png" alt="dbt" class="w-16 h-16 object-contain" />
-                <h3 class="text-lg font-semibold text-slate-200">dbt Fundamentals</h3>
-                <p class="text-sm text-slate-400">dbt Labs</p>
-            </div>
-            <!-- AWS Data Analytics -->
-            <div
-                class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-center gap-4 shadow-lg text-center lg:col-start-2 lg:col-span-2 max-w-sm mx-auto w-full">
-                <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS"
-                    class="w-16 h-16" />
-                <h3 class="text-lg font-semibold text-slate-200">AWS Certified Data Analytics – Specialty</h3>
-                <p class="text-sm text-slate-400">Amazon Web Services</p>
-            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+                <!-- Databricks GenAI -->
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-between gap-6 shadow-lg text-center hover:shadow-sky-500/10 transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center gap-4">
+                        <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#F8462D"
+                                d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z" />
+                        </svg>
+                        <h3 class="text-xl font-bold text-slate-100 italic">Academy Accreditation - Generative AI
+                            Fundamentals</h3>
+                    </div>
+                    <p class="text-sm font-medium text-sky-400 uppercase tracking-wider">Databricks</p>
+                </div>
+                <!-- Azure Data Engineer -->
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-between gap-6 shadow-lg text-center hover:shadow-sky-500/10 transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center gap-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+                            alt="Azure" class="w-16 h-16" />
+                        <h3 class="text-xl font-bold text-slate-100 italic">Microsoft Certified: Azure Data Engineer
+                            Associate</h3>
+                    </div>
+                    <p class="text-sm font-medium text-sky-400 uppercase tracking-wider">Microsoft</p>
+                </div>
+                <!-- Databricks Lakehouse -->
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-between gap-6 shadow-lg text-center hover:shadow-sky-500/10 transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center gap-4">
+                        <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#F8462D"
+                                d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z" />
+                        </svg>
+                        <h3 class="text-xl font-bold text-slate-100 italic">Academy Accreditation - Databricks Lakehouse
+                            Fundamentals</h3>
+                    </div>
+                    <p class="text-sm font-medium text-sky-400 uppercase tracking-wider">Databricks</p>
+                </div>
+                <!-- dbt Fundamentals -->
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-between gap-6 shadow-lg text-center hover:shadow-sky-500/10 transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center gap-4">
+                        <img src="./.github/logos/dbt_logo.png" alt="dbt"
+                            class="h-10 w-auto object-contain brightness-125" />
+                        <h3 class="text-xl font-bold text-slate-100 italic">dbt Fundamentals</h3>
+                    </div>
+                    <p class="text-sm font-medium text-sky-400 uppercase tracking-wider">dbt Labs</p>
+                </div>
+                <!-- AWS Data Analytics -->
+                <div
+                    class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col items-center justify-between gap-6 shadow-lg text-center hover:shadow-sky-500/10 transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center gap-4">
+                        <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS"
+                            class="w-16 h-16" />
+                        <h3 class="text-xl font-bold text-slate-100 italic">AWS Certified Data Analytics – Specialty
+                        </h3>
+                    </div>
+                    <p class="text-sm font-medium text-sky-400 uppercase tracking-wider">Amazon Web Services</p>
+                </div>
             </div>
         </section>
 
