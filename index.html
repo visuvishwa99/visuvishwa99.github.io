@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishwa.P | Senior Cloud Data Engineer - Preview</title>
+    <title>Vishwa Padarti | Senior Data Engineer</title>
     <meta name="description"
         content="Portfolio of Vishwa.P, a Senior Cloud Data Engineer specializing in architecting scalable data platforms, AI-driven workflows, and cloud-native solutions.">
 
@@ -34,6 +34,10 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'gradient-flow': {
+                            '0%': { backgroundPosition: '0% center' },
+                            '100%': { backgroundPosition: '200% center' },
                         }
                     }
                 }
@@ -137,6 +141,16 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #00D4FF;
         }
+
+        /* Custom Utilities */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 
@@ -150,18 +164,17 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold tracking-tighter text-white flex items-center gap-2">
                 <span class="w-8 h-8 bg-data-blue rounded flex items-center justify-center text-data-dark">V</span>
-                MODERN DATA STACKS
+                DATA + AI ENGINEERING
             </a>
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#about" class="text-data-slate hover:text-data-blue transition-colors">ABOUT</a>
-                <a href="#pipeline" class="text-data-slate hover:text-data-blue transition-colors">PLATFORM</a>
+                <a href="#roadmap" class="text-data-slate hover:text-data-blue transition-colors">EXPERIENCE</a>
                 <a href="#skills" class="text-data-slate hover:text-data-blue transition-colors">SKILLS</a>
                 <a href="#certifications" class="text-data-slate hover:text-data-blue transition-colors">CERTS</a>
                 <a href="#contact"
-                    class="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 text-white transition-all">SAY
-                    HELLO</a>
+                    class="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 text-white transition-all">CONTACT</a>
             </nav>
-            <button id="mobile-menu-btn" class="md:hidden text-white">
+            <button id="mobile-menu-btn" class="md:hidden text-white z-50 relative">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -169,6 +182,20 @@
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </button>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-data-dark/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center space-y-8">
+            <a href="#about"
+                class="text-2xl font-bold text-white hover:text-data-blue transition-colors mobile-link">ABOUT</a>
+            <a href="#roadmap"
+                class="text-2xl font-bold text-white hover:text-data-blue transition-colors mobile-link">EXPERIENCE</a>
+            <a href="#skills"
+                class="text-2xl font-bold text-white hover:text-data-blue transition-colors mobile-link">SKILLS</a>
+            <a href="#certifications"
+                class="text-2xl font-bold text-white hover:text-data-blue transition-colors mobile-link">CERTS</a>
+            <a href="#contact"
+                class="px-8 py-3 bg-data-blue text-data-dark font-bold rounded-full mobile-link">CONTACT</a>
         </div>
     </header>
 
@@ -178,27 +205,29 @@
             class="min-h-screen flex flex-col justify-center items-center pt-20 px-6 overflow-hidden relative">
             <div class="container mx-auto max-w-5xl z-10 text-center">
                 <div class="reveal inline-block mb-4 px-3 py-1 bg-data-blue/10 border border-data-blue/20 rounded-full">
-                    <span class="text-xs font-mono text-data-blue font-semibold tracking-widest uppercase">AI Solution
-                        Architect & Data Specialist</span>
+                    <span class="text-xs font-mono text-data-blue font-semibold tracking-widest uppercase">Senior Data
+                        Engineer | Cloud Platforms & Agentic Infrastructure</span>
                 </div>
-                <h1 class="reveal text-5xl md:text-8xl font-extrabold text-white tracking-tighter leading-none mb-6">
-                    ARCHITECTING <br>
+                <h1 class="reveal text-4xl md:text-7xl font-extrabold text-white tracking-tighter leading-none mb-6">
+                    BUILDING DATA PLATFORMS <br>
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-data-blue via-data-lime to-data-blue bg-[length:200%_auto] animate-gradient-flow">INTELLIGENT
-                        SYSTEMS</span>
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-data-blue via-data-lime to-data-blue bg-[length:200%_auto] animate-gradient-flow">THAT
+                        AGENTS RUN ON</span>
                 </h1>
                 <p class="reveal max-w-2xl mx-auto text-lg text-data-slate mb-10 leading-relaxed font-light">
-                    Building the future of Enterprise AI. From high-scale data foundations to
-                    autonomous multi-agent architectures and production-grade LLMOps.
+                    9+ years engineering data infrastructure across finance, retail,
+                    telecom, and EdTech. Now extending that foundation into the
+                    agentic AI layer — tool catalogs, evaluation pipelines, and
+                    governed data systems that compound AI applications depend on.
                 </p>
                 <div class="reveal flex flex-wrap justify-center gap-4">
-                    <a href="#contact"
-                        class="px-8 py-4 bg-data-blue text-data-dark font-bold rounded-lg hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all">
-                        DEPLOY CONNECTION
-                    </a>
                     <a href="#roadmap"
+                        class="px-8 py-4 bg-data-blue text-data-dark font-bold rounded-lg hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all">
+                        VIEW APPROACH
+                    </a>
+                    <a href="#contact"
                         class="px-8 py-4 bg-white/5 text-white font-bold rounded-lg border border-white/10 hover:bg-white/10 transition-all">
-                        VIEW AI ROADMAP
+                        GET IN TOUCH
                     </a>
                 </div>
             </div>
@@ -215,15 +244,19 @@
         <!-- Stats Counter Section -->
         <section class="py-20 border-y border-white/5 bg-data-charcoal/30">
             <div class="container mx-auto px-6">
-                <div class="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
+                <div class="grid grid-cols-3 gap-8 max-w-4xl mx-auto">
                     <div class="reveal text-center">
-                        <div class="text-4xl md:text-5xl font-mono text-white font-bold mb-2" data-count="10">0</div>
+                        <div class="text-4xl md:text-5xl font-mono text-white font-bold mb-2" data-count="9">0</div>
                         <div class="text-xs uppercase tracking-widest text-data-blue font-semibold">Years Experience
                         </div>
                     </div>
                     <div class="reveal text-center" style="transition-delay: 200ms;">
-                        <div class="text-4xl md:text-5xl font-mono text-white font-bold mb-2" data-count="5">0</div>
+                        <div class="text-4xl md:text-5xl font-mono text-white font-bold mb-2" data-count="4">0</div>
                         <div class="text-xs uppercase tracking-widest text-data-orange font-semibold">Cloud Certs</div>
+                    </div>
+                    <div class="reveal text-center" style="transition-delay: 400ms;">
+                        <div class="text-4xl md:text-5xl font-mono text-white font-bold mb-2" data-count="5">0</div>
+                        <div class="text-xs uppercase tracking-widest text-data-lime font-semibold">Industries</div>
                     </div>
                 </div>
             </div>
@@ -245,17 +278,20 @@
                     </div>
                     <div class="w-full md:w-2/3">
                         <h2 class="reveal text-sm font-mono text-data-blue mb-4 uppercase tracking-[0.3em]">
-                            Architect.initialize()</h2>
-                        <h3 class="reveal text-3xl md:text-5xl font-bold text-white mb-8 tracking-tight">Evolving <span
-                                class="text-data-lime">Data Engineering</span> into <span class="text-data-blue">Agentic
-                                AI Intelligence</span>.</h3>
+                            About.me()</h2>
+                        <h3 class="reveal text-3xl md:text-5xl font-bold text-white mb-8 tracking-tight">Proven Data
+                            Engineering. <span class="text-data-blue">Evolved for Agentic AI.</span></h3>
                         <div class="reveal space-y-6 text-lg text-data-slate leading-relaxed font-light">
-                            <p>With a decade of experience in top-tier data infrastructure, I have transitioned my focus
-                                beyond simple data movement. I am now mastering the complete lifecycle of **AI Solution
-                                Architecture**—where data meets autonomous reasoning.</p>
-                            <p>My approach integrates **RAG, Vector Search, and Multi-Agent Workflows** into
-                                production-grade pipelines that don't just store data, but actively solve complex
-                                business problems using autonomous agents.</p>
+                            <p>I've spent 9 years building data platforms that Fortune 500
+                                companies depend on — fraud detection pipelines at American
+                                Express, mortgage processing frameworks at Freddie Mac handling
+                                3.5M applications monthly, a Redshift-to-Databricks migration
+                                at CAVA that cut cloud costs by 20% and supported expansion
+                                from 300 to 350 stores.</p>
+                            <p>That foundation is what makes me effective in the agentic AI
+                                space. Agents need governed data, reliable tools, evaluation
+                                frameworks, and observable pipelines. That's data engineering
+                                with a new interface layer — and it's where I'm focused next.</p>
                         </div>
                     </div>
                 </div>
@@ -276,49 +312,57 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <!-- Phase 1 -->
                     <div class="reveal glass-card p-6 rounded-xl border-l-4 border-data-blue">
-                        <span class="text-[10px] font-mono text-data-blue uppercase tracking-widest">LAYER 01</span>
-                        <h4 class="text-white font-bold mt-2">Scalable Data Foundation</h4>
+                        <span class="text-[10px] font-mono text-data-blue uppercase tracking-widest">LAYER 01
+                            [CORE]</span>
+                        <div class="text-[10px] text-data-slate mb-2">Proven — 9 years in production</div>
+                        <h4 class="text-white font-bold mt-1">Governed Data Platform</h4>
                         <ul class="text-xs text-data-slate mt-4 space-y-2">
-                            <li>• Advanced Spark & Databricks</li>
-                            <li>• Real-time Streaming (Kafka)</li>
-                            <li>• Unity Catalog Governance</li>
-                            <li>• Orchestration (Airflow/dbt)</li>
+                            <li>• Lakehouse Architecture (Databricks, Snowflake)</li>
+                            <li>• Cloud Migrations (AWS, Azure)</li>
+                            <li>• Pipeline Orchestration (Airflow, dbt Mesh)</li>
+                            <li>• Data Governance (Unity Catalog, IAM)</li>
                         </ul>
                     </div>
                     <!-- Phase 2 -->
                     <div class="reveal glass-card p-6 rounded-xl border-l-4 border-data-lime"
                         style="transition-delay: 100ms;">
-                        <span class="text-[10px] font-mono text-data-lime uppercase tracking-widest">LAYER 02</span>
-                        <h4 class="text-white font-bold mt-2">Semantic Intelligence</h4>
+                        <span class="text-[10px] font-mono text-data-lime uppercase tracking-widest">LAYER 02
+                            [CORE]</span>
+                        <div class="text-[10px] text-data-slate mb-2">Proven — deployed at scale</div>
+                        <h4 class="text-white font-bold mt-1">Real-Time & Streaming Infrastructure</h4>
                         <ul class="text-xs text-data-slate mt-4 space-y-2">
-                            <li>• Vector Databases (Faiss/Chroma)</li>
-                            <li>• Embeddings & Semantic Search</li>
-                            <li>• Advanced Prompt Engineering</li>
-                            <li>• RAG Pipeline Optimization</li>
+                            <li>• Apache Kafka & Event-Driven Architecture</li>
+                            <li>• AWS (Glue, EventBridge, SQS)</li>
+                            <li>• Azure (Event Hubs, ADF)</li>
+                            <li>• Observability (DataDog, Great Expectations)</li>
                         </ul>
                     </div>
                     <!-- Phase 3 -->
                     <div class="reveal glass-card p-6 rounded-xl border-l-4 border-data-orange"
                         style="transition-delay: 200ms;">
-                        <span class="text-[10px] font-mono text-data-orange uppercase tracking-widest">LAYER 03</span>
-                        <h4 class="text-white font-bold mt-2">Autonomous Agency</h4>
+                        <span class="text-[10px] font-mono text-data-orange uppercase tracking-widest">LAYER 03
+                            [BUILDING]</span>
+                        <div class="text-[10px] text-data-slate mb-2">Building — active projects</div>
+                        <h4 class="text-white font-bold mt-1">Retrieval & Agent Tool Infrastructure</h4>
                         <ul class="text-xs text-data-slate mt-4 space-y-2">
-                            <li>• Multi-Agent Orchestration</li>
-                            <li>• LangChain & AutoGen Flows</li>
-                            <li>• Tool Use & Function Calling</li>
-                            <li>• Autonomous Reasoning Loops</li>
+                            <li>• RAG Pipelines (Vector, Embeddings)</li>
+                            <li>• Agent Tools (UC Functions, Bedrock)</li>
+                            <li>• Multi-Platform (Mosaic AI, Cortex)</li>
+                            <li>• LangGraph / LangChain Orchestration</li>
                         </ul>
                     </div>
                     <!-- Phase 4 -->
                     <div class="reveal glass-card p-6 rounded-xl border-l-4 border-white"
                         style="transition-delay: 300ms;">
-                        <span class="text-[10px] font-mono text-white uppercase tracking-widest">LAYER 04</span>
-                        <h4 class="text-white font-bold mt-2">Production LLMOps</h4>
+                        <span class="text-[10px] font-mono text-white uppercase tracking-widest">LAYER 04
+                            [BUILDING]</span>
+                        <div class="text-[10px] text-data-slate mb-2">Building — active projects</div>
+                        <h4 class="text-white font-bold mt-1">Agent Evaluation & Observability</h4>
                         <ul class="text-xs text-data-slate mt-4 space-y-2">
-                            <li>• LLMOps & Production Deployment</li>
-                            <li>• Evaluation with LangSmith</li>
-                            <li>• Cost & Performance Scaling</li>
-                            <li>• AI Solution Capstone</li>
+                            <li>• LLM-as-Judge Evaluation</li>
+                            <li>• MLflow Tracing & Reasoning Logs</li>
+                            <li>• Agent Governance & Compliance</li>
+                            <li>• Cost Optimization & Performance</li>
                         </ul>
                     </div>
                 </div>
@@ -343,42 +387,44 @@
                     <div class="glass-card p-6 rounded-xl w-full md:w-64 text-center z-10">
                         <div
                             class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mx-auto mb-4 border border-white/10">
-                            <svg class="w-6 h-6 text-data-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-data-slate" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
                                 </path>
                             </svg>
                         </div>
-                        <h4 class="text-white font-bold mb-1">INFERENCE REQ</h4>
-                        <p class="text-xs text-data-slate">Real-time Data Stream</p>
+                        <h4 class="text-white font-bold mb-1">DATA SOURCES</h4>
+                        <p class="text-xs text-data-slate">Brick POS, NetSuite, MySQL, Oracle, SFTP</p>
                     </div>
 
-                    <!-- Agent -->
+                    <!-- Platform -->
                     <div
                         class="glass-card p-8 rounded-xl w-full md:w-72 text-center z-10 border-data-blue/30 bg-data-blue/5">
                         <div class="relative w-16 h-16 mx-auto mb-4">
-                            <div class="absolute inset-0 bg-data-blue rounded-full blur-xl opacity-30 animate-pulse">
-                            </div>
+                            <div class="absolute inset-0 bg-data-blue rounded-full blur-xl opacity-20"></div>
                             <div
                                 class="relative w-full h-full bg-data-dark rounded-full flex items-center justify-center border border-data-blue/40 overflow-hidden">
-                                <span class="text-data-blue animate-pulse-slow">AI AGENT</span>
+                                <span class="text-data-blue font-bold text-xl">P</span>
                             </div>
                         </div>
-                        <h4 class="text-white font-bold mb-1">AUTONOMOUS AGENT</h4>
-                        <p class="text-xs text-data-slate text-data-blue">Tools / Memory / Reasoning</p>
+                        <h4 class="text-white font-bold mb-1">GOVERNED PLATFORM</h4>
+                        <p class="text-xs text-data-slate mb-1">Lakehouse (Databricks/Snowflake)</p>
+                        <p class="text-[10px] text-data-slate/60">Unity Catalog • dbt Mesh</p>
                     </div>
 
-                    <!-- Result -->
+                    <!-- Agent -->
                     <div class="glass-card p-6 rounded-xl w-full md:w-64 text-center z-10">
                         <div
                             class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mx-auto mb-4 border border-white/10">
                             <svg class="w-6 h-6 text-data-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                                </path>
                             </svg>
                         </div>
-                        <h4 class="text-white font-bold mb-1">STRATEGIC ACTION</h4>
-                        <p class="text-xs text-data-slate">Verified Outcome</p>
+                        <h4 class="text-white font-bold mb-1">AGENT LAYER</h4>
+                        <p class="text-xs text-data-slate mb-1">Tool Catalog • Orchestration</p>
+                        <p class="text-[10px] text-data-slate/60">LLM-as-Judge • Production Agents</p>
                     </div>
                 </div>
             </div>
@@ -397,54 +443,61 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    <!-- Mapping through skills -->
-                    <div class="reveal glass-card p-8 rounded-xl flex flex-col items-center gap-4 tech-icon">
-                        <div class="w-12 h-12 flex items-center justify-center">
-                            <svg class="w-12 h-12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#F8462D"
-                                    d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z" />
-                            </svg>
+                <!-- Core Data Eng -->
+                <div class="mb-12">
+                    <h4
+                        class="text-sm font-bold text-data-slate uppercase tracking-widest mb-6 border-b border-white/5 pb-2">
+                        Core Data Engineering (9 Years)</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Databricks</span>
                         </div>
-                        <span
-                            class="text-xs font-mono font-medium tracking-wider text-data-slate group-hover:text-data-blue uppercase">Databricks</span>
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Snowflake</span>
+                        </div>
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">AWS/Azure</span>
+                        </div>
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">dbt</span>
+                        </div>
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Spark/Kafka</span>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="reveal glass-card p-8 rounded-xl flex flex-col items-center gap-4 tech-icon"
-                        style="transition-delay: 50ms;">
-                        <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" class="w-12 h-12"
-                            alt="Snowflake">
-                        <span
-                            class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Snowflake</span>
-                    </div>
-
-                    <div class="reveal glass-card p-8 rounded-xl flex flex-col items-center gap-4 tech-icon"
-                        style="transition-delay: 100ms;">
-                        <img src="assets/logos/dbt_logo.png" class="h-10 w-auto" alt="dbt">
-                        <span class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">dbt</span>
-                    </div>
-
-                    <div class="reveal glass-card p-8 rounded-xl flex flex-col items-center gap-4 tech-icon"
-                        style="transition-delay: 150ms;">
-                        <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" class="w-12 h-12"
-                            alt="AWS">
-                        <span class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">AWS</span>
-                    </div>
-
-                    <div class="reveal glass-card p-8 rounded-xl flex flex-col items-center gap-4 tech-icon"
-                        style="transition-delay: 200ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                            class="w-12 h-12" alt="Python">
-                        <span
-                            class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Python</span>
-                    </div>
-
-                    <div class="reveal glass-card p-8 rounded-xl flex flex-col items-center gap-4 tech-icon"
-                        style="transition-delay: 250ms;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg"
-                            class="w-12 h-12" alt="Spark">
-                        <span
-                            class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Spark</span>
+                <!-- Agentic AI -->
+                <div>
+                    <h4
+                        class="text-sm font-bold text-data-blue uppercase tracking-widest mb-6 border-b border-white/5 pb-2">
+                        Agentic AI Infrastructure (Building)</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">LangGraph</span>
+                        </div>
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">MLflow</span>
+                        </div>
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Pinecone/FAISS</span>
+                        </div>
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span
+                                class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Bedrock</span>
+                        </div>
+                        <div class="reveal glass-card p-6 rounded-xl flex flex-col items-center gap-3 tech-icon">
+                            <span class="text-xs font-mono font-medium tracking-wider text-data-slate uppercase">Mosaic
+                                AI</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -458,92 +511,56 @@
                 <h3 class="reveal text-4xl font-bold text-white tracking-tight">Professional Proof</h3>
             </div>
 
-            <div class="flex gap-8 px-6 animate-scroll-badges overflow-x-auto pb-8 scrollbar-hide no-scrollbar">
-                <!-- Cert 1 -->
-                <div
-                    class="reveal flex-shrink-0 w-80 glass-card p-8 rounded-2xl group cursor-pointer relative overflow-hidden">
+            <div class="mb-12">
+                <h4 class="text-white font-bold text-xl mb-6 px-6">ACTIVE CERTIFICATIONS</h4>
+                <div class="flex gap-8 px-6 animate-scroll-badges overflow-x-auto pb-8 scrollbar-hide no-scrollbar">
+                    <!-- Cert 1 -->
                     <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-data-blue/10 blur-3xl -tr-10 group-hover:bg-data-blue/20 transition-all">
+                        class="reveal flex-shrink-0 w-80 glass-card p-8 rounded-2xl group cursor-pointer relative overflow-hidden">
+                        <h4 class="text-white font-bold text-xl mb-2 italic">Azure Data Engineer Associate</h4>
+                        <p class="text-sm text-sky-400 font-mono uppercase tracking-widest">Microsoft</p>
                     </div>
-                    <div class="flex items-start justify-between mb-8">
-                        <div
-                            class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center border border-white/10">
-                            <svg class="w-8 h-8 text-data-blue" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M11.725 22.75L0 16.5V7.5l11.725 6.25V22.75zM12.275 22.75L24 16.5V7.5l-11.725 6.25V22.75zM0 6.25L12 0l12 6.25L12 12.5L0 6.25z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h4 class="text-white font-bold text-xl mb-2 italic">Data & AI Architecture</h4>
-                    <p class="text-sm text-data-blue font-mono uppercase tracking-widest">Databricks</p>
-                </div>
-
-                <!-- Cert 2 -->
-                <div class="reveal flex-shrink-0 w-80 glass-card p-8 rounded-2xl group cursor-pointer relative overflow-hidden"
-                    style="transition-delay: 100ms;">
+                    <!-- Cert 2 -->
                     <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 blur-3xl -tr-10 group-hover:bg-sky-500/20 transition-all">
+                        class="reveal flex-shrink-0 w-80 glass-card p-8 rounded-2xl group cursor-pointer relative overflow-hidden">
+                        <h4 class="text-white font-bold text-xl mb-2 italic">Data Analytics – Specialty</h4>
+                        <p class="text-sm text-data-orange font-mono uppercase tracking-widest">Amazon Web Services</p>
                     </div>
-                    <div class="flex items-start justify-between mb-8">
-                        <div
-                            class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center border border-white/10">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
-                                class="w-8 h-8" alt="Azure">
-                        </div>
-                    </div>
-                    <h4 class="text-white font-bold text-xl mb-2 italic">Azure Data Engineer Associate</h4>
-                    <p class="text-sm text-sky-400 font-mono uppercase tracking-widest">Microsoft</p>
-                </div>
-
-                <!-- Cert 3 -->
-                <div class="reveal flex-shrink-0 w-80 glass-card p-8 rounded-2xl group cursor-pointer relative overflow-hidden"
-                    style="transition-delay: 200ms;">
+                    <!-- Cert 3 -->
                     <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-data-orange/10 blur-3xl -tr-10 group-hover:bg-data-orange/20 transition-all">
+                        class="reveal flex-shrink-0 w-80 glass-card p-8 rounded-2xl group cursor-pointer relative overflow-hidden">
+                        <h4 class="text-white font-bold text-xl mb-2 italic">dbt Fundamentals</h4>
+                        <p class="text-sm text-data-lime font-mono uppercase tracking-widest">dbt Labs</p>
                     </div>
-                    <div class="flex items-start justify-between mb-8">
-                        <div
-                            class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center border border-white/10">
-                            <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" class="w-8 h-8"
-                                alt="AWS">
-                        </div>
-                    </div>
-                    <h4 class="text-white font-bold text-xl mb-2 italic">Data Analytics – Specialty</h4>
-                    <p class="text-sm text-data-orange font-mono uppercase tracking-widest">Amazon Web Services</p>
-                </div>
-
-                <!-- Cert 4 -->
-                <div class="reveal flex-shrink-0 w-80 glass-card p-8 rounded-2xl group cursor-pointer relative overflow-hidden"
-                    style="transition-delay: 300ms;">
+                    <!-- Cert 4 -->
                     <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-data-lime/10 blur-3xl -tr-10 group-hover:bg-data-lime/20 transition-all">
+                        class="reveal flex-shrink-0 w-80 glass-card p-8 rounded-2xl group cursor-pointer relative overflow-hidden">
+                        <h4 class="text-white font-bold text-xl mb-2 italic">Databricks Academy</h4>
+                        <p class="text-sm text-data-blue font-mono uppercase tracking-widest">Databricks</p>
                     </div>
-                    <div class="flex items-start justify-between mb-8">
-                        <div
-                            class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center border border-white/10">
-                            <img src="assets/logos/dbt_logo.png" class="h-6 w-auto" alt="dbt">
-                        </div>
-                    </div>
-                    <h4 class="text-white font-bold text-xl mb-2 italic">dbt Fundamentals</h4>
-                    <p class="text-sm text-data-lime font-mono uppercase tracking-widest">dbt Labs</p>
                 </div>
             </div>
+
+
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="py-32 px-6 relative overflow-hidden">
             <div class="container mx-auto max-w-4xl text-center relative z-10">
-                <h2 class="reveal text-sm font-mono text-data-blue mb-4 uppercase tracking-[0.3em]">Network.establish()
+                <h2 class="reveal text-sm font-mono text-data-blue mb-4 uppercase tracking-[0.3em]">Connect()
                 </h2>
-                <h3 class="reveal text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">Let's build something
-                    intelligent.</h3>
-                <p class="reveal text-xl text-data-slate mb-12 font-light">I'm currently reviewing new AI architecture
-                    challenges and leadership opportunities.</p>
+                <h3 class="reveal text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">Let's talk data
+                    infrastructure.</h3>
+                <p class="reveal text-xl text-data-slate mb-12 font-light">I'm currently exploring senior data
+                    engineering roles where
+                    I can own platform architecture long-term. Especially
+                    interested in teams building agentic data systems on
+                    Databricks, Snowflake, or AWS.</p>
 
                 <div class="reveal flex flex-col md:flex-row justify-center items-center gap-6">
                     <a href="mailto:visuvishwa7227@gmail.com"
                         class="group relative px-12 py-6 bg-white text-data-dark font-black text-xl rounded-xl overflow-hidden transition-all hover:scale-105 active:scale-95">
-                        <span class="relative z-10">SAY HELLO</span>
+                        <span class="relative z-10">GET IN TOUCH</span>
                         <div
                             class="absolute inset-0 bg-data-blue scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500">
                         </div>
@@ -582,8 +599,7 @@
     <footer class="py-12 border-t border-white/5 bg-data-dark">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-data-slate text-sm font-mono">
-                &copy; 2026 VISU.VISHWA <span class="mx-2 opacity-20">|</span> <span class="text-data-blue">STACKED FOR
-                    SUCCESS</span>
+                &copy; 2026 VISU.VISHWA
             </div>
             <div class="flex gap-8 text-xs font-mono uppercase tracking-widest text-data-slate">
                 <a href="#" class="hover:text-white transition-colors">Back to top</a>
@@ -706,10 +722,28 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Mobile Menu
+        // Mobile Menu Logic
         const mobileBtn = document.getElementById('mobile-menu-btn');
-        // Simple alert for preview mode
-        mobileBtn.addEventListener('click', () => alert('Mobile menu logic would go here!'));
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        });
+
+        // Close menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
     </script>
 </body>
 
